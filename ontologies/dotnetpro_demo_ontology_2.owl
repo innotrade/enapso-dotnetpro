@@ -1042,6 +1042,7 @@
     <!-- http://ont.enapso.com/dotnetpro#Person_8e7980b9_bec9_4e39_af50_a8f3e6c0d349 -->
 
     <owl:NamedIndividual rdf:about="http://ont.enapso.com/dotnetpro#Person_8e7980b9_bec9_4e39_af50_a8f3e6c0d349">
+        <rdf:type rdf:resource="http://ont.enapso.com/dotnetpro#Employee"/>
         <rdf:type rdf:resource="http://ont.enapso.com/dotnetpro#Person"/>
         <givenname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Max</givenname>
         <surname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mustermann</surname>
