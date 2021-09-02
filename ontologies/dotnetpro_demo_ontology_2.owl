@@ -1139,11 +1139,11 @@
         <owl:intersectionOf rdf:parseType="Collection">
             <rdf:Description rdf:about="http://ont.enapso.com/dotnetpro#Product"/>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ont.enapso.com/dotnetpro#weight"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/dotnetpro#url"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </owl:intersectionOf>
-        <rdfs:subClassOf rdf:resource="http://ont.enapso.com/dotnetpro#MaterialProduct"/>
+        <rdfs:subClassOf rdf:resource="http://ont.enapso.com/dotnetpro#ImmaterialProduct"/>
     </owl:Class>
 </rdf:RDF>
 

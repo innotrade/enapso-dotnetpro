@@ -1,0 +1,62 @@
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix dnp: <http://ont.enapso.com/dotnetpro#>
+
+
+# Laden aller Klassen, unsortiert/sortiert
+select distinct *
+where { 
+  ?cls a owl:Class
+}
+order by
+  ?cls
+
+# Klassen mit Deutschen Labeln, umschalten auf Englische!
+select distinct *
+where { 
+  ?cls a owl:Class .
+  optional {
+    ?cls rdfs:label ?label
+    filter(lang(?label) = 'de')
+  }
+}
+order by
+  ?cls
+
+# Laden aller Sub-Klassen einer Klasse
+select *
+where { 
+  ?cls rdfs:subClassOf dnp:Staff .
+  optional {
+    ?cls rdfs:label ?label
+    filter(lang(?label) = 'de')
+  }
+}
+
+# Laden aller Instanzen einer Klasse
+select *
+where { 
+  ?ind a dnp:Product ;
+    ?prop ?value .
+}
+
+#select *
+#where { 
+#  ?ind a dnp:Product ;
+#    (dnp:artno|dnp:salesPrice|dnp:purchasePrice) ?value .
+#}
+
+# Laden aller Instanzen einer Klasse mit expliziten Properties
+select
+  *
+  # ?artno ?name ?salesPrice ?purchasePrice
+where { 
+  ?ind a dnp:Product ;
+    dnp:artno ?artno ;
+    dnp:name ?name ;
+    dnp:salesPrice ?salesPrice ;
+    dnp:purchasePrice ?purchasePrice .
+}
+order by ?artno
